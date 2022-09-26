@@ -16,7 +16,7 @@ import {
   ScrollView,
 } from "native-base";
 import { Fontisto } from '@expo/vector-icons';
-import Profile from "../components/Profile";
+
 
 
 // Define the config
@@ -28,7 +28,7 @@ const config = {
 export default function ListTodo({ navigation }) {
   return (
     <>
-      <ScrollView >
+      <ScrollView>
         <Box m={5}>
           <HStack
             space={48}
@@ -42,7 +42,7 @@ export default function ListTodo({ navigation }) {
               <Text color="error.400">100k</Text>
             </VStack>
             <Flex Flex direction="row-reverse">
-              <Avatar mr="1" source={{
+              <Avatar bg="lightBlue.400" mr="1" source={{
                 uri: "https://bit.ly/broken-link"
               }}>
                 EK
@@ -80,10 +80,10 @@ export default function ListTodo({ navigation }) {
                 borderColor="#737373"
                 borderWidth="1"
               >
-                <Select.Item label="UX Research" value="ux" />
+                <Select.Item label="Frontend" value="Frontrend" />
                 <Select.Item
-                  label="Web Development"
-                  value="web"
+                  label="Backend"
+                  value="Backend"
                   borderColor="#737373"
                   borderWidth="1"
                 />
@@ -96,10 +96,10 @@ export default function ListTodo({ navigation }) {
                 borderColor="#737373"
                 borderWidth="1"
               >
-                <Select.Item label="UX Research" value="ux" />
+                <Select.Item label="Active" value="Active" />
                 <Select.Item
-                  label="Web Development"
-                  value="web"
+                  label="Non Active"
+                  value="NonActive"
                   borderColor="#737373"
                   borderWidth="1"
                 />
@@ -107,109 +107,150 @@ export default function ListTodo({ navigation }) {
             </FormControl>
           </HStack>
           <Box>
+
+
             <VStack bg="amber.100" py="2" px="4" mb="4">
-              <HStack space={32}>
-                <Text
-                  bold
-                  fontSize="12pt"
-                  strikeThrough
-                  onPress={() => navigation.navigate("detaillist")}
-                >
-                  Study-Golang-programing
-                </Text>
-                <Button bg="amber.400" px="2" py="0" h="22px">
-                  Study
-                </Button>
-              </HStack>
-              <HStack space={16}>
-                <VStack color="e63946" pr="8">
-                  <Text mb="6" color="#a3a3a3" strikeThrough>
-                    Pelajatadkjakdg jkasdhdfgrdtdtd
-                  </Text>
-                  <HStack>
-                    <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
-                    <Text color="#a3a3a3" fontSize="8pt">
-                      {" "}
-                      19 July 2022
+              <Flex direction="row" >
+                <Flex direction="column">
+                  <HStack space={32}>
+                    <Text
+                      bold
+                      fontSize="12pt"
+                      strikeThrough
+                      onPress={() => navigation.navigate("detaillist")}
+                    >
+                      Study-Golang-programing
                     </Text>
                   </HStack>
-                </VStack>
+                  <HStack space={16}>
+                    <VStack color="e63946" pr="8">
+                      <Text mb="6" color="#a3a3a3" strikeThrough>
+                        Pelajaran Backend
+                      </Text>
+                      <HStack>
+                        <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
+                        <Text color="#a3a3a3" fontSize="8pt">
+                          {" "}
+                          19 July 2022
+                        </Text>
+                      </HStack>
 
-                <CheckCircleIcon
-                  color="green.500"
-                  size="30"
-                //   pl="1"
-                ></CheckCircleIcon>
-              </HStack>
-            </VStack>
-            <VStack bg="amber.100" py="2" px="4" mb="4">
-              <HStack space={32}>
-                <Text
-                  bold
-                  fontSize="12pt"
-                  strikeThrough
-                  onPress={() => navigation.navigate("detaillist")}
-                >
-                  Study-Golang-programing
-                </Text>
-                <Button bg="amber.400" px="2" py="0" h="22px">
-                  Study
-                </Button>
-              </HStack>
-              <HStack space={16}>
-                <VStack color="e63946" pr="8">
-                  <Text mb="6" color="#a3a3a3" strikeThrough>
-                    Pelajatadkjakdg jkasdhdfgrdtdtd
-                  </Text>
-                  <HStack>
-                    <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
-                    <Text color="#a3a3a3" fontSize="8pt">
-                      {" "}
-                      19 July 2022
-                    </Text>
+                    </VStack>
                   </HStack>
-                </VStack>
+                </Flex>
+                <Flex direction="column" marginLeft="100px"  >
 
-                <CheckCircleIcon
-                  color="green.500"
-                  size="30"
-                //   pl="1"
-                ></CheckCircleIcon>
-              </HStack>
+                  <Button bg="amber.400" px="2" py="0" h="22px">
+                    Study
+                  </Button>
+                  <CheckCircleIcon style={{ marginEnd: 15, marginTop: 4 }}
+                    color="green.500"
+                    size="30"
+                  ></CheckCircleIcon>
+                </Flex>
+
+              </Flex>
+
             </VStack>
 
-            <VStack bg="red.100" py="2" px="4" mb="10">
-              <HStack space={32}>
-                <Text bold fontSize="12pt" onPress={() => navigation.navigate("detaillist")}>
-                  Study-Golang-programing
-                </Text>
-                <Button bg="blue.400" px="2" py="0" h="22px">
-                  Study
-                </Button>
-              </HStack>
-              <HStack space={16}>
-                <VStack color="#a3a3a3" pr="8">
-                  <Text mb="6" color="#a3a3a3">
-                    Pelajatadkjakdg jkasdhdfgrdtdtd
-                  </Text>
-                  <HStack>
-                    <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
-                    <Text color="#a3a3a3" fontSize="8pt">
-                      {" "}
-                      19 July 2022
-                    </Text>
-                  </HStack>
-                </VStack>
-                <CircleIcon
-                  color="#d4d4d4"
-                  size="30"
-                //   pl="1"
-                ></CircleIcon>
-              </HStack>
-            </VStack>
+            <Box>
+
+
+              <VStack bg="amber.100" py="2" px="4" mb="4">
+                <Flex direction="row" >
+                  <Flex direction="column">
+                    <HStack space={32}>
+                      <Text
+                        bold
+                        fontSize="12pt"
+                        strikeThrough
+                        onPress={() => navigation.navigate("detaillist")}
+                      >
+                        Study-Golang-programing
+                      </Text>
+                    </HStack>
+                    <HStack space={16}>
+                      <VStack color="e63946" pr="8">
+                        <Text mb="6" color="#a3a3a3" strikeThrough>
+                          Pelajaran Backend
+                        </Text>
+                        <HStack>
+                          <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
+                          <Text color="#a3a3a3" fontSize="8pt">
+                            {" "}
+                            19 July 2022
+                          </Text>
+                        </HStack>
+
+                      </VStack>
+                    </HStack>
+                  </Flex>
+                  <Flex direction="column" marginLeft="100px"  >
+
+                    <Button bg="amber.400" px="2" py="0" h="22px">
+                      Study
+                    </Button>
+                    <CheckCircleIcon style={{ marginEnd: 10, marginTop: 4 }}
+                      color="green.500"
+                      size="30"
+                    ></CheckCircleIcon>
+                  </Flex>
+
+                </Flex>
+
+              </VStack>
+
+              <VStack bg="amber.100" py="2" px="4" mb="4">
+                <Flex direction="row" >
+                  <Flex direction="column">
+                    <HStack space={32}>
+                      <Text
+                        bold
+                        fontSize="12pt"
+                        strikeThrough
+                        onPress={() => navigation.navigate("detaillist")}
+                      >
+                        Study-Golang-programing
+                      </Text>
+                    </HStack>
+                    <HStack space={16}>
+                      <VStack color="e63946" pr="8">
+                        <Text mb="6" color="#a3a3a3" strikeThrough>
+                          Pelajaran Backend
+                        </Text>
+                        <HStack>
+                          <Fontisto name="date" color="#a3a3a3" size="12" mt="3" />
+                          <Text color="#a3a3a3" fontSize="8pt">
+                            {" "}
+                            19 July 2022
+                          </Text>
+                        </HStack>
+
+                      </VStack>
+                    </HStack>
+                  </Flex>
+                  <Flex direction="column" marginLeft="100px"  >
+
+                    <Button bg="amber.400" px="2" py="0" h="22px">
+                      Study
+                    </Button>
+                    <CircleIcon style={{ marginEnd: 10, marginTop: 4 }}
+                      color="#d4d4d4"
+                      size="30"
+                    //   pl="1"
+                    ></CircleIcon>
+                  </Flex>
+
+                </Flex>
+
+              </VStack>
+
+
+            </Box>
+
           </Box>
-          {/* <Menu /> */}
         </Box>
+
       </ScrollView>
     </>
   );

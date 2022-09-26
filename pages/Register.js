@@ -1,85 +1,170 @@
-import React from "react";
+import { StyleSheet, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import {
-    Text,
-    Link,
-    HStack,
-    Center,
-    NativeBaseProvider,
     VStack,
-    FormControl,
+    Image,
+    Center,
+    HStack,
     Button,
-    Input
+    Text,
+    Box,
+    Heading,
+    FormControl,
+    Input,
+    Link,
 } from "native-base";
-import { TouchableOpacity } from "react-native";
-import Todo from "../components/Todo";
-import LoginIcon from "../components/LoginIcon";
-import { API } from "../config/api";
-// Define the config
-const config = {
-    useSystemColorMode: false,
-    initialColorMode: "dark",
-};
+import login from "../image/Login Icon.png";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+const Register = ({ navigation }) => {
+    let [register, setRegister] = useState({
+        firstName: "",
+        email: "",
+        password: "",
+    });
 
+    const handleChanges = (title, value) => {
+        setRegister({
+            ...register,
+            [title]: value,
+        });
+    };
+    console.log(register);
 
-export default function Register({ navigation }) {
+    const handleRegister = async () => {
+        try {
+            const config = {
+                Headers: {
+                    "Content-type": "application/json",
+                },
+            };
+
+            const body = JSON.stringify(register);
+
+            const res = await axios.post(
+                "https://api.kontenbase.com/query/api/v1/c69a3570-67bf-4476-882f-3bf7c51ab1be/auth/register",
+                body,
+                config
+            );
+            if (res) {
+                await AsyncStorage.setItem("token", res.data.token);
+            }
+            const value = await AsyncStorage.getItem("token");
+            if (value != null) {
+                console.log(value);
+                navigation.navigate("login");
+            }
+        } catch (error) {
+            console.log(error);
+            alert(error.res.data.message);
+        }
+    };
+
+    // useEffect(() => {
+    //   handleRegister();
+    // }, []);
+
     return (
-        <NativeBaseProvider>
-            <Center
-                _dark={{ bg: "blueGray.900" }}
-                _light={{ bg: "blueGray.50" }}
-                px={4}
-                flex={1}
-            >
-                <VStack space={2} alignItems="">
-                    <LoginIcon />
-                    <HStack alignItems="start" mt="5">
-                        <Text fontSize="3xl" bold>Register</Text>
-                    </HStack>
-                    <FormControl my="3">
-                        <Input type="email"
-                            placeholder="Email"
-                            value="email"
-                            bold
-                            bg="muted.200"
-                        />
-                    </FormControl>
-                    <FormControl mb="3">
-                        <Input type="name"
-                            value="name"
-                            placeholder="Name"
-                            bold
-                            bg="muted.200"
-                            size="md"
-                        />
-                    </FormControl>
-                    <FormControl >
-                        <Input type="password"
-                            placeholder="password"
-                            value="password"
-                            bold
-                            bg="muted.200"
-                            size="md"
-                        />
-                    </FormControl>
-                    <Button variant="danger" bg="error.600" w="100%" mt="10" onPress={() => navigation.navigate('listtodo')}>
-                        <Text bold color="white">Register</Text>
-                    </Button>
+        <Box w="100%" display="flex" flex={1} alignItems="center">
+            <Center w="100%">
+                <Box safeArea p="2" py="8" w="100%" maxW="300">
+                    <Image source={login} alt="Alternate Text" size="200" width={"500"} />
 
-                    <Center>
-                        <Text mb="10">
-                            Joined us before?
-                            <TouchableOpacity onPress={() => navigation.navigate('login')}>
-                                <Text color="error.600" bold>
+                    <Heading
+                        mt={10}
+                        size="lg"
+                        fontWeight="600"
+                        color="coolGray.800"
+                        bold
+                        _dark={{
+                            color: "warmGray.50",
+                        }}
+                    >
+                        Register
+                    </Heading>
+                    <VStack space={4} mt="5">
+                        <FormControl bg="#e5e5e5" borderColor="#737373">
+                            <Input
+                                type="email"
+                                placeholder="Email"
+                                size="lg"
+                                borderColor="#737373"
+                                borderWidth="1"
+                                borderRadius="5px"
+                                onChangeText={(value) => handleChanges("email", value)}
+                                value={register.email}
+                            />
+                        </FormControl>
+                        <FormControl bg="#e5e5e5">
+                            <Input
+                                type="name"
+                                placeholder="Name"
+                                size="lg"
+                                borderColor="#737373"
+                                borderWidth="1"
+                                borderRadius="5px"
+                                onChangeText={(value) => handleChanges("firstName", value)}
+                                value={register.firstName}
+                            />
+                        </FormControl>
+                        <FormControl bg="#e5e5e5">
+                            <Input
+                                type="password"
+                                placeholder="Password"
+                                size="lg"
+                                borderColor="#737373"
+                                borderWidth="1"
+                                borderRadius="5px"
+                                onChangeText={(value) => handleChanges("password", value)}
+                                value={register.password}
+                            />
+                        </FormControl>
+                        <Button
+                            mt="8"
+                            colorScheme="indigo"
+                            bg="#ef4444"
+                            onPress={handleRegister}
+                        >
+                            <Text bold color="white" fontSize="16px">
+                                Register
+                            </Text>
+                        </Button>
+                        <HStack justifyContent="center">
+                            <Text
+                                fontSize="sm"
+                                color="coolGray.600"
+                                _dark={{
+                                    color: "warmGray.200",
+                                }}
+                            >
+                                Joined us before ?{" "}
+                            </Text>
+                            <Link
+                                _text={{
+                                    color: "#ef4444",
+                                    fontWeight: "medium",
+                                    fontSize: "sm",
+                                }}
+                                href="#"
+                                bold
+                            >
+                                <Text
+                                    bold
+                                    color="#ef4444"
+                                    onPress={() => navigation.navigate("login")}
+                                >
                                     Login
                                 </Text>
-                            </TouchableOpacity>
-                        </Text>
-                    </Center>
-
-
-                </VStack>
+                            </Link>
+                        </HStack>
+                    </VStack>
+                </Box>
             </Center>
-        </NativeBaseProvider>
+        </Box>
     );
-}
+};
+
+export default Register;
+
+const styles = StyleSheet.create({});
