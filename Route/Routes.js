@@ -10,6 +10,7 @@ import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AddCategory from '../pages/AddCategory';
 
 
 
@@ -27,11 +28,17 @@ function Layardepan() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="register" component={Register} />
-      <Stack.Screen name="login" component={Login} />
-      <Stack.Screen name="listtodo" component={Tab1} options={{
+      <Stack.Screen name="register" component={Register} options={{
         headerShown: false,
       }} />
+      <Stack.Screen name="detaillist" component={DetailList} />
+      <Stack.Screen name="login" component={Login} options={{
+        headerShown: false,
+      }} />
+      <Stack.Screen name="listtodo" component={Tab1} options={{
+        headerShown: false,
+      }}
+      />
     </Stack.Navigator>
 
   );
@@ -54,7 +61,7 @@ export function Tab1() {
           } else if (route.name === "addlist") {
             iconName = "clipboard-list"
             iconColor = focused ? "red" : "gray"
-          } else if (route.name === "detaillist") {
+          } else if (route.name === "addcategory") {
             iconName = "th-list"
             iconColor = focused ? "red" : "gray"
           }
@@ -72,7 +79,7 @@ export function Tab1() {
       <Tab.Screen name="addlist" component={AddList} options={{
         headerShown: false,
       }} />
-      <Tab.Screen name="detaillist" component={DetailList} options={{
+      <Tab.Screen name="addcategory" component={AddCategory} options={{
         headerShown: false,
       }} />
     </Tab.Navigator>

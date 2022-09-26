@@ -13,7 +13,7 @@ import {
 import { TouchableOpacity } from "react-native";
 import Todo from "../components/Todo";
 import LoginIcon from "../components/LoginIcon";
-
+import { API } from "../config/api";
 // Define the config
 const config = {
     useSystemColorMode: false,
@@ -39,12 +39,14 @@ export default function Register({ navigation }) {
                     <FormControl my="3">
                         <Input type="email"
                             placeholder="Email"
+                            value="email"
                             bold
                             bg="muted.200"
                         />
                     </FormControl>
                     <FormControl mb="3">
                         <Input type="name"
+                            value="name"
                             placeholder="Name"
                             bold
                             bg="muted.200"
@@ -54,12 +56,13 @@ export default function Register({ navigation }) {
                     <FormControl >
                         <Input type="password"
                             placeholder="password"
+                            value="password"
                             bold
                             bg="muted.200"
                             size="md"
                         />
                     </FormControl>
-                    <Button variant="danger" bg="error.600" w="100%" mt="10"  onPress={() => navigation.navigate('listtodo')}>
+                    <Button variant="danger" bg="error.600" w="100%" mt="10" onPress={() => navigation.navigate('listtodo')}>
                         <Text bold color="white">Register</Text>
                     </Button>
 
