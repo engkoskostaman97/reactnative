@@ -47,13 +47,13 @@ export default function AddCategory() {
             </Text>
           </Button>
           <Text fontSize="2xl" bold my="5">
-              List Category
-        </Text>
-        <Text>
-        <Button variant="danger" bg="primary.300" color="white" mr="2" borderRadius="10">Study</Button>
-        <Button variant="danger" bg="error.400" color="white" mr="2" borderRadius="10">Home Work</Button>
-        <Button variant="danger" bg="warning.400" color="white" borderRadius="10">Workout</Button>
-        </Text>
+            List Category
+          </Text>
+          <Text>
+            <Button variant="danger" bg="primary.300" color="white" mr="2" borderRadius="10">Study</Button>
+            <Button variant="danger" bg="error.400" color="white" mr="2" borderRadius="10">Home Work</Button>
+            <Button variant="danger" bg="warning.400" color="white" borderRadius="10">Workout</Button>
+          </Text>
         </VStack>
       </Center>
     </NativeBaseProvider>

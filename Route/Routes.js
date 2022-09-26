@@ -65,10 +65,16 @@ export function Tab1() {
       })}
     >
 
-      <Tab.Screen name="listtodo" component={ListTodo} />
+      <Tab.Screen name="listtodo" component={ListTodo} options={{
+        headerShown: false,
+      }} />
       {/* <FontAwesome name="calendar" size={24} color="black" /> */}
-      <Tab.Screen name="addlist" component={AddList} />
-      <Tab.Screen name="detaillist" component={DetailList} />
+      <Tab.Screen name="addlist" component={AddList} options={{
+        headerShown: false,
+      }} />
+      <Tab.Screen name="detaillist" component={DetailList} options={{
+        headerShown: false,
+      }} />
     </Tab.Navigator>
 
   );
