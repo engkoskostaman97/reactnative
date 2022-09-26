@@ -22,7 +22,7 @@ const config = {
 
 
 
-export default function Register({navigation}) {
+export default function Register({ navigation }) {
     return (
         <NativeBaseProvider>
             <Center
@@ -59,21 +59,21 @@ export default function Register({navigation}) {
                             size="md"
                         />
                     </FormControl>
-                    <Button variant="danger" bg="error.600" w="100%" mt="10">
+                    <Button variant="danger" bg="error.600" w="100%" mt="10"  onPress={() => navigation.navigate('listtodo')}>
                         <Text bold color="white">Register</Text>
                     </Button>
 
                     <Center>
-                    <Text mb="10">
-                        Joined us before? 
-                        <TouchableOpacity onPress={()=>navigation.navigate('login')}>
-                            <Text color="error.600" bold>
-                              Login
-                            </Text>
-                        </TouchableOpacity>
-                    </Text>
+                        <Text mb="10">
+                            Joined us before?
+                            <TouchableOpacity onPress={() => navigation.navigate('login')}>
+                                <Text color="error.600" bold>
+                                    Login
+                                </Text>
+                            </TouchableOpacity>
+                        </Text>
                     </Center>
-                 
+
 
                 </VStack>
             </Center>

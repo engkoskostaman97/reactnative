@@ -10,7 +10,7 @@ import {
     Button,
     Input
 } from "native-base";
-import {  TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Todo from "../components/Todo";
 import LoginIcon from "../components/LoginIcon";
 
@@ -22,7 +22,7 @@ const config = {
 
 
 
-export default function Login({navigation}) {
+export default function Login({ navigation }) {
     return (
         <NativeBaseProvider>
             <Center
@@ -53,21 +53,21 @@ export default function Login({navigation}) {
                             size="md"
                         />
                     </FormControl>
-                    <Button variant="danger" bg="error.600" w="100%" mt="10">
+                    <Button variant="danger" bg="error.600" w="100%" mt="10" onPress={() => navigation.navigate('listtodo')}>
                         <Text bold color="white">Login</Text>
                     </Button>
 
                     <Center>
-                    <Text>
-                        New Users ?
-                        <TouchableOpacity onPress={()=>navigation.navigate('register')}>
-                            <Text color="error.600" bold>
-                                Register
-                            </Text>
-                        </TouchableOpacity>
-                    </Text>
+                        <Text>
+                            New Users ?
+                            <TouchableOpacity onPress={() => navigation.navigate('register')}>
+                                <Text color="error.600" bold>
+                                    Register
+                                </Text>
+                            </TouchableOpacity>
+                        </Text>
                     </Center>
-                 
+
 
                 </VStack>
             </Center>

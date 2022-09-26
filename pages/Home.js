@@ -39,22 +39,22 @@ export default function Home({ navigation }) {
       >
         <VStack space={2} alignItems="center">
           <Todo />
-            <HStack alignItems="center" mt="5">
-              <Text>Write your activity and finish your activity.</Text>
-            </HStack>
-            <HStack alignItems="center">
-              <Text>Fast, Simple and Easy to Use</Text>
-            </HStack>
-            <Button mt="1/5" variant="danger" bg="error.600" w="80%"  onPress={()=>navigation.navigate('login')}>
-              <Text bold color="white">Login</Text>
-            </Button>
-            <Button my="1" mx="10" variant="muted" bg="muted.500" w="80%" onPress={()=>navigation.navigate('register')}>
-              <Text bold color="white">Register</Text>
-            </Button>
+          <HStack alignItems="center" mt="5">
+            <Text>Write your activity and finish your activity.</Text>
+          </HStack>
+          <HStack alignItems="center">
+            <Text>Fast, Simple and Easy to Use</Text>
+          </HStack>
+          <Button mt="1/5" variant="danger" bg="error.600" w="80%" onPress={() => navigation.navigate('login')}>
+            <Text bold color="white">Login</Text>
+          </Button>
+          <Button my="1" mx="10" variant="muted" bg="muted.500" w="80%" onPress={() => navigation.navigate('register')}>
+            <Text bold color="white">Register</Text>
+          </Button>
         </VStack>
-    
+
       </Center>
-   
+
     </NativeBaseProvider>
 
   );
